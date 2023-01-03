@@ -7,6 +7,7 @@ PATH = "/home/francisco/Desktop/planilhas_escolas/xml_pdf_nfe/teste.xml"
 NAMESPACE = {'':'http://www.portalfiscal.inf.br/nfe'}
 
 arq = xml.parse(PATH)
+a =  ''
 root = arq.getroot()
 
 prodList = root.findall('NFe/infNFe/det', NAMESPACE)
