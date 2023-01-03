@@ -6,7 +6,10 @@ class Product:
     self.unity       = prodNode.find('prod/uTrib', nameSpace).text
 
   def getProduct(self) -> dict:
-    return {'name': self.description, 
-            'price': float(self.price), 
-            'quant': float(self.quantity), 
-            'unity': self.unity}
+    price = float(self.price)
+    quant = float(self.quantity)
+    return {'name': self.description,
+            'unity': self.unity,
+            'price': price, 
+            'quant': quant,
+            'total': price*quant}
