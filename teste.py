@@ -1,10 +1,11 @@
-from Product import Product
-from Enterprise import Enterprise
+from Constants import *
+from info.Enterprise.School import School
+from info.Product import Product
+from info.Enterprise.Concurrent import Concurrent
+
 
 import pandas as pd
 import xml.etree.ElementTree as xml
-
-from Constants import *
 
 arq = xml.parse(PATH)
 root = arq.getroot()
@@ -20,10 +21,8 @@ for product in prodList:
   p = Product(product, NAMESPACE).getProduct()
   lis.append(p)
 
-print(df(lis).set_index('name'), end='\n\n')
-
-info  = Enterprise(emit, NAMESPACE).getEnterpriseInfo()
-info2 = Enterprise(dest, NAMESPACE).getEnterpriseInfo()
+info  = Concurrent(emit, NAMESPACE).getEnterpriseInfo()
+info2 = School(dest, NAMESPACE).getEnterpriseInfo()
 
 print(df([info]).set_index('name'), end='\n\n')
 print(df([info2]).set_index('name'))
