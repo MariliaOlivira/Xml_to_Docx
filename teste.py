@@ -1,18 +1,17 @@
-import xml.etree.ElementTree as xml
 from Product import Product
 from Enterprise import Enterprise
-import pandas as pd
 
-PATH = "/home/francisco/Desktop/planilhas_escolas/xml_pdf_nfe/teste.xml"
-NAMESPACE = {'':'http://www.portalfiscal.inf.br/nfe'}
+import pandas as pd
+import xml.etree.ElementTree as xml
+
+from Constants import *
 
 arq = xml.parse(PATH)
-a =  ''
 root = arq.getroot()
 
-prodList = root.findall('NFe/infNFe/det', NAMESPACE)
 emit = root.find('NFe/infNFe/emit', NAMESPACE)
 dest = root.find('NFe/infNFe/dest', NAMESPACE)
+prodList = root.findall('NFe/infNFe/det', NAMESPACE)
 
 df = pd.DataFrame
 lis = list()
@@ -23,7 +22,7 @@ for product in prodList:
 
 print(df(lis).set_index('name'), end='\n\n')
 
-info = Enterprise(emit, NAMESPACE).getEnterpriseInfo()
+info  = Enterprise(emit, NAMESPACE).getEnterpriseInfo()
 info2 = Enterprise(dest, NAMESPACE).getEnterpriseInfo()
 
 print(df([info]).set_index('name'), end='\n\n')
