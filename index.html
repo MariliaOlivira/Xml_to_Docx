@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XmlToDocx</title>
+</head>
+<body>
+    <p>Transforme </p>
+    <form method="POST" action="{{url_for('convert')}}" enctype="multipart/form-data">
+        <input type="file" name="xml_file">
+        <input type="submit" value="Convert">
+    </form>
+</body>
+</html>
