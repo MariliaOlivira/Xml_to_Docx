@@ -31,9 +31,13 @@ class StartPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
+        
+        # create a label
         label = tk.Label(self, text="Cadastro de Empresas",
                          font=controller.title_font)
         label.pack(side="top", fill="x", pady=10)
+
+        # create a button
         self.cnpj_label = tk.Label(self, text="CNPJ:")
         self.cnpj_entry = tk.Entry(self)
         self.endereco_label = tk.Label(self, text="Endereço:")
@@ -46,6 +50,7 @@ class StartPage(tk.Frame):
         self.cadastrar_button = tk.Button(
             self, text="Cadastrar", command=self.on_button)
 
+        #'pack' organiza os widgets na tela
         self.cnpj_label.pack()
         self.cnpj_entry.pack()
         self.endereco_label.pack()
@@ -106,6 +111,9 @@ class PageOne(tk.Frame):
         button = tk.Button(self, text="Go to the start page",
                            command=lambda: controller.show_frame("StartPage"))
         button.pack()
+
+    def funcao_do_botao(self):
+        self.controller.show_frame("PageTwo")
 
 
 class PageTwo(tk.Frame):
