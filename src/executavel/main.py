@@ -60,12 +60,7 @@ class StartPage(tk.Frame):
         self.inscricao_estadual_label.pack()
         self.inscricao_estadual_entry.pack()
         self.cadastrar_button.pack()
-        # button1 = tk.Button(self, text="Ir para a proxima etapa",
-        #                     command=lambda: controller.show_frame("PageOne"))
-        # button1.pack()
-        # button2 = tk.Button(self, text="Go to Page Two",
-        #                     command=lambda: controller.show_frame("PageTwo"))
-        # button2.pack()
+
 
     def on_cadastro(self):
 
