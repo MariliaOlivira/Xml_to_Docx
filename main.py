@@ -11,7 +11,7 @@ def index():
 @app.route('/convert', methods=['POST'])
 def convert():
     file = request.files['xml_file']
-    print(file.filename)
+    # print(file.filename)
     tree = ET.parse(file)
     root = tree.getroot()
     document = Document()
@@ -20,13 +20,6 @@ def convert():
         document.add_paragraph(element.text)
     document.save('converted.docx')
     return redirect(url_for('download'))
-    # xml_file = request.files['xml_file']
-    # # Converta o arquivo XML em um objeto Document do python-docx
-    # doc = Document(xml_file)
-    # # Salve o objeto Document em um arquivo DOCX
-    # doc.save('converted.docx')
-    # # Redirecione o usuário para a página de download do arquivo convertido
-    # return redirect(url_for('download'))
 
 @app.route('/download')
 def download():
