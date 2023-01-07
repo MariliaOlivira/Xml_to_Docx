@@ -142,7 +142,6 @@ class PageTwo(tk.Frame):
                             command=lambda: controller.show_frame("PageOne"))
         button.pack()
 
-
 app = App()
 app.mainloop()
 
