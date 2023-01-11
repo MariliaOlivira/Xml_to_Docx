@@ -35,8 +35,10 @@ class StartPage(tk.Frame):
         # create a label
         label = tk.Label(self, text="Cadastro de Empresas",
                         font=controller.title_font)
-        # image = tk.PhotoImage(file="image/fundo.jpg")
-        # label = tk.Label(self, image=image)
+        image = tk.PhotoImage(file='fundo.gif', master=self)
+
+        # cria o rótulo
+        label = tk.Label(self, image=image)
         label.pack(side="top", fill="x", pady=10)
 
         # create a button
@@ -65,8 +67,6 @@ class StartPage(tk.Frame):
 
 
     def on_cadastro(self):
-
-
         #pegando os dados do usuario
         cnpj = self.cnpj_entry.get()
         endereco = self.endereco_entry.get()
@@ -77,9 +77,9 @@ class StartPage(tk.Frame):
         arquivo = open(f'{cnpj}.txt', 'w')
 
         #escrevendo os dados no arquivo
-        arquivo.write(f"CNPJ: {cnpj}")
-        arquivo.write(f"Endereço: {endereco}")
-        arquivo.write(f"Razão social: {razao_social}")
+        arquivo.write(f"CNPJ: {cnpj}:")
+        arquivo.write(f"Endereço: {endereco}:")
+        arquivo.write(f"Razão social: {razao_social}:")
         arquivo.write(f"Inscrição estadual: {inscricao_estadual}")
 
         #fechando o arquivo
